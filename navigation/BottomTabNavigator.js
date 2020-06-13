@@ -7,7 +7,7 @@ import HomeScreen from '../screens/HomeScreen';
 import SettingScreen from '../screens/SettingScreen';
 import NewsScreen from '../screens/NewsScreen';
 import SearchScreen from '../screens/SearchScreen';
-import { fetchGeneralNews } from "../actions/index";
+import { fetchGeneralNews, fetchRate } from "../actions/index";
 
 
 const BottomTab = createBottomTabNavigator();
@@ -18,6 +18,7 @@ export default function BottomTabNavigator({ navigation, route }) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchGeneralNews());
+    dispatch(fetchRate());
   })
 
   return (

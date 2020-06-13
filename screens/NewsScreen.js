@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from "lodash";
 import { useSelector } from "react-redux";
-import { SafeAreaView, ScrollView, FlatList, StyleSheet, Text } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 import { GeneralNews } from '../components/GeneralNews';
 
 export default function NewsScreen() {

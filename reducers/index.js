@@ -1,7 +1,8 @@
 import produce from "immer";
 
 const baseState = {
-  generalnews: {}
+  generalnews: {},
+  rates: {},
 };
 
 const reducer = produce((state, action) => {
@@ -11,6 +12,9 @@ const reducer = produce((state, action) => {
       action.payload.forEach(gnews => {
         state.generalnews[gnews.headline] = gnews;
       })
+      break;
+    case 'FETCH_RATE':
+      state.rates = action.payload;
       break;
     default:
       break;

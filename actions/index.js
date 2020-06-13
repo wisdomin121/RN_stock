@@ -17,3 +17,17 @@ export function fetchGeneralNews(){
     }
   }
 }
+
+export function fetchRate(){
+  return async (dispatch) => {
+    const rate_url = `${API_URL}/forex/rates?`;
+    try{
+      const result = await axios(rate_url, {params: {
+        token: API_KEY
+      }});
+      dispatch({type: 'FETCH_RATE', payload: result.data.quote});
+    }catch(error){
+      console.error(error);
+    }
+  }
+}
