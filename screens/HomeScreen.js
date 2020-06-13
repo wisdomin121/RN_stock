@@ -1,19 +1,36 @@
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, SafeAreaView, TextInput, View, Text } from 'react-native';
 import { useSelector } from "react-redux";
+import { FontAwesome } from '@expo/vector-icons'; 
+
+import AllRates from '../components/AllRates';
 
 export default function HomeScreen() {
-  const rates = useSelector(state => state.rates);
+  const [value, onChangeText] = React.useState('Enter the Company');
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>STOCK</Text>
-
-      <View>
-
+    <SafeAreaView style={styles.container}>
+      <View style={styles.search}>
+        <TextInput
+          style={styles.input}
+          onChangeText={text => onChangeText(text)}
+          value={value}
+        />
+        <FontAwesome
+          style={styles.icon}
+          name={"search"}
+          size={18}
+        />
       </View>
-      <Text style={styles.test}>aa{rates['JPY']}</Text>
-    </View>
+
+      <View style={styles.rates}>
+        <Text style={styles.ratestitle}>
+          Rates
+          <Text style={styles.ratesinfo}>   (base: EUR)</Text>
+        </Text>
+        <AllRates />
+      </View>
+    </SafeAreaView>
   );
 }
 
@@ -22,8 +39,38 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  title: {
-    fontSize: 30,
-    textAlign: "center"
+  search: {
+    flexDirection: 'row',
+    height: 40,
+    alignItems: 'center',
+    borderWidth: .5,
+    borderColor: '#ABABAB',
+    borderRadius: 10,
+    margin: 10,
+    padding: 5,
+    
+  },
+  input: { 
+    flex: 1,
+  },
+  icon: {
+    padding: 10,
+    margin: 5,
+    alignItems: 'center'
+  },
+  rates: {
+    borderTopWidth: .5,
+    borderBottomWidth: .5,
+    borderColor: '#ABABAB'
+  },
+  ratestitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    margin: 5
+  },
+  ratesinfo: {
+    fontSize: 10,
+    fontWeight: 'normal',
+    color: '#828282'
   }
 });

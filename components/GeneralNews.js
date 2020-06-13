@@ -28,12 +28,12 @@ export const GeneralNews = ({gnews}) => {
 
 const styles = StyleSheet.create({
   total: {
-    borderBottomWidth: 1,
+    borderBottomWidth: .5,
     borderBottomColor: '#ABABAB',
     flexDirection: "row",
     marginBottom: 10,
     marginLeft: 5,
-    marginRight: 5
+    marginRight: 10
   },
   headline: {
     fontSize: 15,

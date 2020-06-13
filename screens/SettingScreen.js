@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 20,
     alignItems: "center",
-    borderBottomWidth: 1,
+    borderBottomWidth: .5,
     borderColor: '#ABABAB'
   },  
   icon: {

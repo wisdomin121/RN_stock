@@ -14,7 +14,7 @@ const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
 
 export default function BottomTabNavigator({ navigation, route }) {
-  navigation.setOptions({ headerTitle: getHeaderTitle(route) });
+  navigation.setOptions({ headerTitle: getHeaderTitle(route), headerTintColor: '#CA9FE1'});
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchGeneralNews());
@@ -22,7 +22,13 @@ export default function BottomTabNavigator({ navigation, route }) {
   })
 
   return (
-    <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
+    <BottomTab.Navigator 
+      initialRouteName={INITIAL_ROUTE_NAME} 
+      tabBarOptions={{
+        activeTintColor: '#CA9FE1', 
+        inactiveTintColor: '#ccc'
+      }}
+    >
       <BottomTab.Screen
         name="Home"
         component={HomeScreen}
@@ -64,16 +70,12 @@ function getHeaderTitle(route) {
 
   switch (routeName) {
     case 'Home':
-      return 'Home';
-      break;
+      return 'STOCK';
     case 'News':
       return 'News';
-      break;
     case 'Search':
       return 'Search';
-      break;
     case 'Setting':
       return 'Setting';
-      break;
   }
 }
