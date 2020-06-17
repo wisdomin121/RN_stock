@@ -5,7 +5,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import AllRates from '../components/AllRates';
 import MyLists from '../components/MyLists';
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   const [value, onChangeText] = React.useState('Enter the Company');
 
   return (
