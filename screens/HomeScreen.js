@@ -35,7 +35,7 @@ export default function HomeScreen({ navigation }) {
         <Text style={styles.title}>
           Lists
         </Text>
-        <MyLists />
+        <MyLists navigation = {navigation}/>
       </View>
 
     </SafeAreaView>
