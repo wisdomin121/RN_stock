@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { StyleSheet, SafeAreaView, TextInput, View, Text } from 'react-native';
-import { useSelector } from "react-redux";
 import { FontAwesome } from '@expo/vector-icons'; 
 
 import AllRates from '../components/AllRates';
+import MyLists from '../components/MyLists';
 
 export default function HomeScreen() {
   const [value, onChangeText] = React.useState('Enter the Company');
@@ -24,11 +24,18 @@ export default function HomeScreen() {
       </View>
 
       <View style={styles.rates}>
-        <Text style={styles.ratestitle}>
+        <Text style={styles.title}>
           Rates
           <Text style={styles.ratesinfo}>   (base: EUR)</Text>
         </Text>
         <AllRates />
+      </View>
+
+      <View style={styles.list}>
+        <Text style={styles.title}>
+          Lists
+        </Text>
+        <MyLists />
       </View>
     </SafeAreaView>
   );
@@ -63,7 +70,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: .5,
     borderColor: '#ABABAB'
   },
-  ratestitle: {
+  title: {
     fontSize: 18,
     fontWeight: 'bold',
     margin: 5

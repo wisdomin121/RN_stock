@@ -9,10 +9,10 @@ export default function SettingScreen() {
       <View style={styles.profile}>
         <FontAwesome 
           name={"user-circle-o"}
-          size={45}
+          size={35}
           style={styles.icon}
         />
-        <Text style={styles.login}>LOGIN/SIGN UP</Text>
+        <Text style={styles.login}>로그인 / 가입하기</Text>
       </View>
     </View>
   );
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   },
   login: {
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 16,
     marginLeft: 10,
     color: '#7F7F7F'
   }, 

@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     borderWidth: .5,
     borderRadius: 5,
     margin: 10,
-    padding: 10
+    padding: 15
   },
   ratestext: {
     fontWeight: 'bold'
