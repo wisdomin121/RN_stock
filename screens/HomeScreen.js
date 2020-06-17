@@ -37,6 +37,7 @@ export default function HomeScreen() {
         </Text>
         <MyLists />
       </View>
+
     </SafeAreaView>
   );
 }

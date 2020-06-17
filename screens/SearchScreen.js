@@ -4,7 +4,7 @@ import { FontAwesome } from '@expo/vector-icons';
 
 
 export default function SearchScreen() {
-  const [value, onChangeText] = React.useState('Enter the Company');
+  const [value, onChangeText] = React.useState('Enter the Symbol');
 
   return (
     <SafeAreaView style={styles.container}>

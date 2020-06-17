@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
-import { HometoSearch } from '../'
+import { useNavigation } from '@react-navigation/native';
 
-export default function MyLists() {
+export default function MyLists({ navigation }) {
+
   return(
     <View style={styles.mylistview}>
       <Text style={styles.mylisttitle}>
@@ -15,6 +16,7 @@ export default function MyLists() {
         <View style={styles.symbollist}>
           <Text style={styles.mylistcontent}>You're not following anything</Text>
           <Button
+            onPress={() => navigation.navigate('SearchScreen')}
             title="+ ADD SYMBOL"
             color="#CA9FE1"
           />
