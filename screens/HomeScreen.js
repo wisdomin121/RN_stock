@@ -15,13 +15,15 @@ export default function HomeScreen({ navigation }) {
           style={styles.input}
           onChangeText={text => onChangeText(text)}
           value={value}
+          onSubmitEditing={(e) => {
+            navigation.navigate('Detail', {symbol: e.nativeEvent.text});
+          }}
         />
-        <FontAwesome.Button
+        <FontAwesome
           style={styles.icon}
           name={"search"}
           size={18}
-          backgroundColor={'#CA9FE1'}
-          onPress={() => navigation.navigate('Detail')}
+          color={"#CA9FE1"}
         />
       </View>
 

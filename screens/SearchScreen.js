@@ -12,13 +12,15 @@ export default function SearchScreen({ navigation }) {
           style={styles.input}
           onChangeText={text => onChangeText(text)}
           value={value}
+          onSubmitEditing={(e) => {
+            navigation.navigate('Detail', {symbol: e.nativeEvent.text});
+          }}
         />
-        <FontAwesome.Button
+        <FontAwesome
           style={styles.icon}
           name={"search"}
           size={18}
-          backgroundColor={'#CA9FE1'}
-          onPress={() => navigation.navigate('Detail')}
+          color={"#CA9FE1"}
         />
       </View>
     </SafeAreaView>
@@ -39,7 +41,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     margin: 10,
     padding: 5,
-    
+  },
+  icon: {
+    color: '#CA9FE1'
   },
   input: { 
     flex: 1,

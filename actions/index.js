@@ -31,3 +31,18 @@ export function fetchRate(){
     }
   }
 }
+
+export function fetchStock(symbol){
+  return async (dispatch) => {
+    const stock_url = `${API_URL}/stock/profile2?`;
+    try{
+      const result = await axios(stock_url, {params: {
+        symbol: symbol,
+        token: API_KEY
+      }});
+      dispatch({type: 'FETCH_STOCK', payload: result.data});
+    }catch(error){
+      console.error(error);
+    }
+  }
+}
