@@ -16,10 +16,12 @@ export default function HomeScreen({ navigation }) {
           onChangeText={text => onChangeText(text)}
           value={value}
         />
-        <FontAwesome
+        <FontAwesome.Button
           style={styles.icon}
           name={"search"}
           size={18}
+          backgroundColor={'#CA9FE1'}
+          onPress={() => navigation.navigate('Detail')}
         />
       </View>
 
@@ -60,11 +62,6 @@ const styles = StyleSheet.create({
   },
   input: { 
     flex: 1,
-  },
-  icon: {
-    padding: 10,
-    margin: 5,
-    alignItems: 'center'
   },
   rates: {
     borderTopWidth: .5,

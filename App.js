@@ -10,6 +10,7 @@ import useCachedResources from './hooks/useCachedResources';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import LinkingConfiguration from './navigation/LinkingConfiguration';
 import rootReducer from './reducers/index';
+import DetailScreen from './screens/DetailScreen';
 
 const Stack = createStackNavigator();
 const store = createStore(
@@ -30,6 +31,7 @@ export default function App(props) {
           <NavigationContainer linking={LinkingConfiguration}>
             <Stack.Navigator>
               <Stack.Screen name="Root" component={BottomTabNavigator} />
+              <Stack.Screen name="Detail" component={DetailScreen}/>
             </Stack.Navigator>
           </NavigationContainer>
         </View>

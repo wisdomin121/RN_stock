@@ -1,17 +1,20 @@
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import BottomTabNavigator from './BottomTabNavigator';
-const Stack = createStackNavigator();
+// import * as React from 'react';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createStackNavigator } from '@react-navigation/stack';
+// import BottomTabNavigator from './BottomTabNavigator';
+// import DetailScreen from '../screens/DetailScreen';
 
-function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={BottomTabNavigator} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
+// const Stack = createStackNavigator();
 
-export default App;
+// function App() {
+//   return (
+//     <NavigationContainer>
+//       <Stack.Navigator>
+//         <Stack.Screen name="Home" component={BottomTabNavigator} />
+//         <Stack.Screen name="Detail" component={DetailScreen}/>
+//       </Stack.Navigator>
+//     </NavigationContainer>
+//   );
+// }
+
+// export default App;

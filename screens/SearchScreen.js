@@ -2,8 +2,7 @@ import * as React from 'react';
 import { StyleSheet, SafeAreaView, View, TextInput } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons'; 
 
-
-export default function SearchScreen() {
+export default function SearchScreen({ navigation }) {
   const [value, onChangeText] = React.useState('Enter the Symbol');
 
   return (
@@ -14,10 +13,12 @@ export default function SearchScreen() {
           onChangeText={text => onChangeText(text)}
           value={value}
         />
-        <FontAwesome
+        <FontAwesome.Button
           style={styles.icon}
           name={"search"}
           size={18}
+          backgroundColor={'#CA9FE1'}
+          onPress={() => navigation.navigate('Detail')}
         />
       </View>
     </SafeAreaView>
@@ -44,8 +45,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   icon: {
-    padding: 10,
-    margin: 5,
-    alignItems: 'center'
+
   },
 });
