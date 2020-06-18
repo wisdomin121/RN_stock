@@ -18,6 +18,26 @@ export function fetchGeneralNews(){
   }
 }
 
+export function fetchCompanyNews(symbol){
+  return async (dispatch) => {
+    const news_url = `${API_URL}/company-news?`
+    var today = new Date();
+    var Full_today = "2020-06-18";
+    var Full_yesterday ="2020-06-17";
+    try{
+      const result = await axios(news_url, {params: {
+        symbol: symbol,
+        from: Full_yesterday,
+        to: Full_today,
+        token: API_KEY
+      }});
+      dispatch({type: 'FETCH_COMPANY_NEWS', payload: result.data});
+    }catch(error){
+      console.error(error);
+    }
+  };
+}
+
 export function fetchRate(){
   return async (dispatch) => {
     const rate_url = `${API_URL}/forex/rates?`;

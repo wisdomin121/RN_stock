@@ -1,29 +1,44 @@
 import React, { useEffect } from 'react';
+import _ from "lodash";
 import { useDispatch, useSelector } from "react-redux";
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, ScrollView } from 'react-native';
 
-import { fetchStock, fetchPrice } from "../actions/index";
+import { fetchStock, fetchPrice, fetchCompanyNews } from "../actions/index";
 import MarketPrice from '../components/MarketPrice';
+import { CompanyNews } from '../components/CompanyNews';
+import { FontAwesome } from '@expo/vector-icons';
 
 export default function DetailStock({ route }) {
   const dispatch = useDispatch();
   const symbol = route.params.symbol;
+  
   useEffect(() => {{
     dispatch(fetchStock(symbol));
     dispatch(fetchPrice(symbol));
+    dispatch(fetchCompanyNews(symbol));
   }},[]);
 
   const stock = useSelector(state => state.stock);
   const price = useSelector(state => state.price);
-  
+  const companynews = useSelector(state => state.companynews);  
+
+  console.log(price);
+
   if(stock.name){
     return(
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Text style={styles.name}>
-          {stock.name}  <Text style={styles.ticker}>{stock.ticker}</Text>
+          {stock.name}  <Text style={styles.ticker}>{stock.ticker}  </Text>    
+          <FontAwesome 
+            name={"star-o"}
+            size={25}
+            color={'#CA9FE1'}
+          />
         </Text>
         <MarketPrice price={price} stock={stock}/>
-      </View>
+        <Text style={styles.newstitle}>News</Text>
+        {_.map(companynews, cnews => <CompanyNews key={cnews.id} cnews={cnews}/>)}
+      </ScrollView>
     );
   }else{
     return(
@@ -61,6 +76,10 @@ const styles = StyleSheet.create({
   },
   searched: {
     color: '#ABABAB'
-  }
-  
+  },
+  newstitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    margin: 5
+  },
 })

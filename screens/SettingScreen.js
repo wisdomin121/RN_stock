@@ -14,6 +14,9 @@ export default function SettingScreen() {
         />
         <Text style={styles.login}>로그인 / 가입하기</Text>
       </View>
+      <View style={styles.toolsview}>
+        <Text>Tools</Text>
+      </View>
     </View>
   );
 }
