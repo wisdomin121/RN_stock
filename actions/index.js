@@ -46,3 +46,18 @@ export function fetchStock(symbol){
     }
   }
 }
+
+export function fetchPrice(symbol){
+  return async (dispatch) => {
+    const stock_url = `${API_URL}/quote?`;
+    try{
+      const result = await axios(stock_url, {params: {
+        symbol: symbol,
+        token: API_KEY
+      }});
+      dispatch({type: 'FETCH_PRICE', payload: result.data});
+    }catch(error){
+      console.error(error);
+    }
+  }
+}

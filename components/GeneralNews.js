@@ -19,7 +19,7 @@ export const GeneralNews = ({gnews}) => {
       <View style={styles.right}>
         <Image
           style={styles.image}
-          source={{uri: gnews.image}}
+          source={gnews.image ? {uri: gnews.image} : null} 
         />
       </View>
     </TouchableOpacity>

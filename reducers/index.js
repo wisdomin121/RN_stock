@@ -4,6 +4,7 @@ const baseState = {
   generalnews: {},
   rates: {},
   stock: [],
+  price: {},
 };
 
 const reducer = produce((state, action) => {
@@ -17,9 +18,12 @@ const reducer = produce((state, action) => {
     case 'FETCH_RATE':
       state.rates = action.payload;
       break;
-      case 'FETCH_STOCK':
-        state.stock = action.payload; 
-        break;
+    case 'FETCH_STOCK':
+      state.stock = action.payload; 
+      break;
+    case 'FETCH_PRICE':
+      state.price = action.payload;
+      break;
     default:
       break;
   }
